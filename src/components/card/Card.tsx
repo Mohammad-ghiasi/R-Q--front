@@ -1,7 +1,7 @@
 import { cardInfo } from "../../types/cardinfo";
 
 const Card = (props: cardInfo) => {
-    const { id, ad_type, description,image, price, title } = props
+    const { ad_type, description,image, price, title } = props
     return (
         <>
             <div className="border border-black m-6 p-4">
