@@ -1,8 +1,9 @@
-import { useState } from 'react'
+import React, { useState } from 'react'
 import { useGet } from '../../hooks/useget'
 import { cardInfo } from '../../types/cardinfo'
 import Card from '../card/Card'
 import { useForm } from 'react-hook-form'
+
 
 type form = {
     key: string;
@@ -54,6 +55,8 @@ const Cardpage = () => {
                 <span className="bg-gray-200 px-4  cursor-pointer" onClick={(): void => { setDatas({ ...datas, type: 'buy' }) }}>buy</span>
                 <span className="bg-gray-200 px-4  cursor-pointer" onClick={(): void => { setDatas({ ...datas, type: 'sell' }) }}>sell</span>
             </div>
+            <span onClick={(): void => setDatas({ ...datas, pagenumber: 2 })}>Next</span>
+            {/* <span onClick={(): void => setDatas({...datas, pagenumber: pagenumber})}>Previous</span> */}
             <form onSubmit={handleSubmit(onsubmit)} noValidate>
                 <input
                     className="border border-red-500"
@@ -67,6 +70,7 @@ const Cardpage = () => {
             <div className="grid grid-cols-1 md:grid-cols-3">
                 {data?.map((item: cardInfo) => <Card key={item.id} {...item} />)}
             </div>
+
         </>
     )
 }

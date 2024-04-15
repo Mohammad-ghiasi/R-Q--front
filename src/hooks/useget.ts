@@ -11,6 +11,8 @@ export const useGet = (url: string, infos?: arguments) => {
   let all: number = 0;
   const { data, isPending, error, isError } = useQuery({
     queryKey: ["Posts", infos],
+    initialData: infos, // important,
+    placeholderData: infos, // important
     queryFn: async (): Promise<any> => {
       let address: string = url + infos?.pagenumber;
 
@@ -19,7 +21,7 @@ export const useGet = (url: string, infos?: arguments) => {
       }
 
       if (infos?.search) {
-        address = `http://localhost:8000/ads/advertises/paged/?search=${infos?.search}`;
+        address = `http://localhost:8000/ads/advertises/paged/?ad_type=${infos?.search}&page=${infos?.pagenumber}`;
         console.log(address);
       }
 
