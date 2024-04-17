@@ -1,7 +1,7 @@
 import React from "react";
 import { cardInfo } from "../../types/cardinfo";
 import Drawer from '@mui/material/Drawer';
-import { Box, Button } from "@mui/material";
+import { Button } from "@mui/material";
 
 const Card = (props: cardInfo) => {
     const { ad_type, description,image, price, title } = props;

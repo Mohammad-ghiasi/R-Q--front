@@ -1,8 +1,9 @@
-import React, { useState } from 'react'
+import { useState } from 'react'
 import { useGet } from '../../hooks/useget'
 import { cardInfo } from '../../types/cardinfo'
 import Card from '../card/Card'
 import { useForm } from 'react-hook-form'
+import AddForm from '../addCarForm/AddForm'
 
 
 type form = {
@@ -49,7 +50,13 @@ const Cardpage = () => {
     return (
         <>
             <h1>Cardpage components</h1>
+
             <p className='text-xl'>totall item: {all}</p>
+            <hr />
+            <div className="bg-gray-200 m-4">
+                <AddForm />
+            </div>
+            <hr />
             <div className="flex space-x-4">
                 <span className="bg-gray-200 px-4  cursor-pointer" onClick={(): void => { setDatas({ ...datas, type: null }) }}>all</span>
                 <span className="bg-gray-200 px-4  cursor-pointer" onClick={(): void => { setDatas({ ...datas, type: 'buy' }) }}>buy</span>
@@ -64,7 +71,7 @@ const Cardpage = () => {
                     {...register("key")}
 
                 />
-                <button className="bg-blue-400 ms-5" type='submit'>submite</button>
+                <button className="bg-blue-400 ms-5" type='submit'>search</button>
 
             </form>
             <div className="grid grid-cols-1 md:grid-cols-3">
